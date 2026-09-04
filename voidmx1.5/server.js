@@ -30,19 +30,29 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 // ===========================================
 
 // Directorio de build de Next.js
-const frontendBuildPath = path.join(__dirname, '../frontend/.next')
+const frontendBuildPath = path.join(__dirname, 'frontend', '.next')
 
 // Servir archivos estáticos del frontend en la ruta raíz
 app.use(express.static(frontendBuildPath))
 
 // Ruta raíz que sirve la interfaz del chat
 app.get('/', (req, res) => {
-  res.sendFile(path.join(frontendBuildPath, 'server/pages/chat.html'))
+  const chatPage = path.join(frontendBuildPath, 'server', 'pages', 'chat.html')
+  if (fs.existsSync(chatPage)) {
+    res.sendFile(chatPage)
+  } else {
+    res.status(404).send('Frontend no construido. Ejecuta: npm run build:frontend')
+  }
 })
 
 // Servir página de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(frontendBuildPath, 'server/pages/login.html'))
+  const loginPage = path.join(frontendBuildPath, 'server', 'pages', 'login.html')
+  if (fs.existsSync(loginPage)) {
+    res.sendFile(loginPage)
+  } else {
+    res.status(404).send('Frontend no construido. Ejecuta: npm run build:frontend')
+  }
 })
 
 // Configurar almacenamiento temporal para archivos subidos
