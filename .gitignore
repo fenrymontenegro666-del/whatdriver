@@ -1,0 +1,36 @@
+```
+# Next.js build outputs
+.next/
+out/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Local configuration files
+.vscode/
+.idea/
+```

@@ -1,0 +1,12 @@
+{
+  "name": "voidmx1.5",
+  "version": "1.0.0",
+  "description": "AI Video Generation Platform with ChatGPT-style interface",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:comfyui": "python backend/services/comfyui_client.py",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "dependencies": {}
+}
